@@ -19,7 +19,6 @@ function Proyectos(){
             )}
         </div>
     </section>
-    {console.log(proyectos)}
     </>
     )
 }
