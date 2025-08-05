@@ -1,10 +1,20 @@
 import { useState, useEffect } from "react";
 import proyectosData from "../data/proyectos.json"
 import TarjetaProyecto from "./TarjetaProyectos";
+import { getProjects } from "../services/projects";
+//import { getProjects } from "../services/projects";
+
+
 function Proyectos(){
     const [proyectos,setProyectos] = useState([])
-    useEffect(()=>{
-        setProyectos(proyectosData)
+
+    const loadProjects = async ()=>{
+        const data = await getProjects()
+        console.log(data)
+        setProyectos(data)
+    }
+    useEffect( ()=>{
+        loadProjects()
     },[])
     return(
     <>
